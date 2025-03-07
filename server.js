@@ -76,3 +76,13 @@ const PORT = process.env.PORT || 3001;  // Ensure different from OpenAI server
 app.listen(PORT, () => {
     console.log(`Middleware server running on port ${PORT}`);
 });
+
+
+app.get('/', (req, res) => {
+    res.send('Hello, World! The server is working!');
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
