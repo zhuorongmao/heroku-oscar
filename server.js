@@ -71,18 +71,13 @@ app.post("/process", async (req, res) => {
     }
 });
 
-// Start the middleware server
-const PORT = process.env.PORT || 3001;  // Ensure different from OpenAI server
-app.listen(PORT, () => {
-    console.log(`Middleware server running on port ${PORT}`);
-});
-
-
+// **Fix: Add a GET route to prevent "Cannot GET /" errors**
 app.get('/', (req, res) => {
     res.send('Hello, World! The server is working!');
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+// **Fix: Ensure only one app.listen call**
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Middleware server running on port ${PORT}`);
 });
