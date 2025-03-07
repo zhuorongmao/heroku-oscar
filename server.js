@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors()); // Allow cross-origin requests
 
 // Replace with your actual Oscar node address
-const OSCAR_API_URL = "http://gpu2004.oscar.ccv.brown.edu:11434/api/generate"; 
+const OSCAR_API_URL = "http://gpu2002.oscar.ccv.brown.edu:11434/api/generate"; 
 
 // Function to format response (similar to OpenAI version)
 const formatResponse = (text) => {
