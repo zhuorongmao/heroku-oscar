@@ -10,18 +10,8 @@ app.use(cors()); // Allow cross-origin requests
 
 const OSCAR_API_URL = "http://gpu2002.oscar.ccv.brown.edu:11434/api/generate"; 
 
-// Function to format response (similar to OpenAI version)
-// const formatResponse = (text) => {
-//     return text
-//         .replace(/### (.+)/g, '<h3>$1</h3>') // Convert ### headings to <h3>
-//         .replace(/^- (.+)$/gm, '<li>$1</li>') // Convert markdown bullet points to <li>
-//         .replace(/(<li>.+?<\/li>)(?!(<\/ul>))/g, '<ul>$1</ul>') // Wrap orphan <li> elements in <ul>
-//         .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') // Bold (**text**)
-//         .replace(/\*(.+?)\*/g, '<em>$1</em>') // Italics (*text*)
-//         .replace(/\n{2,}/g, '<br><br>'); // Ensure double line breaks between paragraphs
-// };
 
-// API endpoint to handle chat requests
+// put together the prompt
 app.post("/process", async (req, res) => {
     try {
         const { currentMessage, messageHistory, includeProspectus } = req.body;
